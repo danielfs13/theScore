@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+body{
+    height: 100vh;
+    background-image: url(images/futebolbg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#topcontainer{
+    background-color:#fafafacc;
+    height:15vh;
+    position: relative;
+    top: 0;
+}
+
+#topcontainer img{
+    width: 30vw;
+    position: absolute;
+    left: 35vw;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    padding: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90%;
+    background-color:#fafafacc;
+    text-align: center;
+    border-radius: 4px;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    height: 50vh;
+}
+
+#ligas{
+    position:fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    left:10vw;
+    padding-right: 10vw;
+    justify-content: space-around;
+}
+
+.container::-webkit-scrollbar{
+    background-color: #a39a9a4b;
+}
+
+.container::-webkit-scrollbar-thumb{
+    background-color: rgba(240, 255, 240, 0.555);
+    border-radius: 5rem;
+}
+
+.container::-webkit-scrollbar-corner{
+    background-color: #a39a9a4b;
+}
+
+#partidas{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.title-box{
+    margin: 25px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    font-size: 1em;
+   
+    
+}
+.title-box #goals{
+    font-size: 1.5em;
+}
+.team{
+    width: 100px;
+}
+.team img{
+    height: 54px;
+    width: 54px;
+}
+.matches-table{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.match-tile{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.match-tile img{
+    width: 52px;
+    height: 52px;
+}
+.match-tile p{
+    font-size: 0.8rem;
+}
+
+.match-tile #goals{
+    font-size: 1.5rem;
+}
+.match-tile .team{
+    width: 100px;
+}

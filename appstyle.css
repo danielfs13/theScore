@@ -17,16 +17,19 @@ body{
 }
 
 #topcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color:#fafafacc;
     height:15vh;
     position: relative;
     top: 0;
+    width: 100%;
 }
 
 #topcontainer img{
     width: 30vw;
     position: absolute;
-    left: 35vw;
 }
 
 .container{
@@ -129,4 +132,14 @@ body{
 }
 .match-tile .team{
     width: 100px;
+}
+
+@media (max-width:1050px){
+    #topcontainer img{
+        width: 20em;
+    }
+}
+
+.PTeste{
+    color: red;
 }

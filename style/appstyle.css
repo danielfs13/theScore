@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+body{
+    height: 100vh;
+    background-image: url(images/futebolbg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#topcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#fafafacc;
+    height:15vh;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+#topcontainer img{
+    width: 30vw;
+    position: absolute;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    padding: 16px;
+    top: 50%;
+    left: 57.5%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    background-color:#fafafacc;
+    text-align: center;
+    border-radius: 0px 4px 4px 0px;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    height: 50vh;
+}
+
+
+.container::-webkit-scrollbar{
+    background-color: #a39a9a4b;
+}
+
+.container::-webkit-scrollbar-thumb{
+    background-color: rgba(240, 255, 240, 0.555);
+    border-radius: 5rem;
+}
+
+.container::-webkit-scrollbar-corner{
+    background-color: #a39a9a4b;
+}
+
+#partidas{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.title-box{
+    margin: 25px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    font-size: 1em;
+   
+    
+}
+.title-box #goals{
+    font-size: 1.5em;
+}
+.team{
+    width: 100px;
+}
+.team img{
+    height: 54px;
+    width: 54px;
+}
+.matches-table{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.match-tile{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.match-tile img{
+    width: 52px;
+    height: 52px;
+}
+.match-tile p{
+    font-size: 0.8rem;
+}
+
+.match-tile #goals{
+    font-size: 1.5rem;
+}
+.match-tile .team{
+    width: 100px;
+}
+
+@media (max-width:1050px){
+    #topcontainer img{
+        width: 20em;
+    }
+}
+
+.PTeste{
+    color: red;
+}
+
+#main{
+    display: flex;
+}
+
+#leftMenu{
+    display: flex;
+    flex-direction: column;
+    background-color:#fafafacc;
+    height: 53.2vh;
+    width: 15vw;
+    position: absolute;
+    top: 23.4%;
+    left: 16.5%;
+    border-right: solid rgba(128, 128, 128, 0.212);;
+}
+
+#leftMenu a{
+    text-decoration: none;
+    color:black;
+}
+
+#leftMenu li{
+    font-size: 1.2em;
+    padding-top:3vh;
+    padding-bottom:3vh;
+    border-bottom: solid 2px rgba(128, 128, 128, 0.212);
+}
+
+#leftMenu ul :hover{
+    background-color: rgba(128, 128, 128, 0.178);
+}

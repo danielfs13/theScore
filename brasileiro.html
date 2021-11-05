@@ -10,7 +10,7 @@
     </head>
     
     <body>
-        <div id='topcontainer'><img src='style/images/logo.png' ></div>
+        <div id='topcontainer'><img src='/images/logo.png' ></div>
 
 
 <div id='main'> 
@@ -25,31 +25,27 @@
     </div>
 
     <div class="container">
-            <div id='partidas'>
-                <div class="title-box">
-                    <p>Casa</p>
-                    <p id="elapsed">45'</p>
-                    <p>Visitante</p>
-                </div>
-                <div class="title-box">
-                    <div class="team">
-                        <img  id="homeLogo" >
-                        <p id="homeName">Team name</p>
-                    </div>
-                    <p id="goals">3  -  1</p>
-                    <div class="team">
-                        <img id="awayLogo">
-                        <p id="awayName">Team name</p>
-                    </div>
-                    
-                </div>
-                <hr>
-                <div id="matchTable" class="matches-table">
-
-                </div>
-            </div>
+        <div id="wg-api-football-fixtures"
+        data-host="v3.football.api-sports.io"
+        data-refresh="60"
+        data-date=""
+        data-league="4"
+        data-team=""
+        data-season="2021"
+        data-last=""
+        data-next=""
+        data-key="b5fd9ace06fe64728c81b99adf061751"
+        data-theme=""
+        data-show-errors="false"
+        class="api_football_loader">
+    </div>
+    <script
+        type="module"
+        src="https://widgets.api-sports.io/football/1.1.8/widget.js">
+    </script>
+    
     </div>
 </div>
-         <script src="script/main.js"></script>
+         <script src="script/brasileiro.js"></script>
     </body>
 </html>

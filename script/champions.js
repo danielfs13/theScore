@@ -53,7 +53,7 @@ function addMatchTile(data){
 }
 
 
-fetch("https://v3.football.api-sports.io/fixtures?league=71&season=2021&next=10", {
+fetch("https://v3.football.api-sports.io/fixtures?league=2&season=2021&next=10", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "v3.football.api-sports.io",
@@ -61,6 +61,7 @@ fetch("https://v3.football.api-sports.io/fixtures?league=71&season=2021&next=10"
 	}
 })
 .then(response => response.json().then(data => {
+    console.log(data);
     var matchesList = data['response'];
     var fixture = matchesList[0]['fixture'];
     var goals = matchesList[0]['goals'];

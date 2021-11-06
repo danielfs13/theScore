@@ -70,19 +70,6 @@ function addMatchTile(data){
 
 })) */
 
-fetch("https://v3.football.api-sports.io/leagues?country=Cameroon", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "b5fd9ace06fe64728c81b99adf061751"
-    }
-})
-.then(response => response.json().then(data => {
-    console.log(data)
-
-
-}))
-
  fetch("https://v3.football.api-sports.io/fixtures?live=all", {
     "method": "GET",
     "headers": {
@@ -91,6 +78,7 @@ fetch("https://v3.football.api-sports.io/leagues?country=Cameroon", {
     }
 })
 .then(response => response.json().then(data => {
+    console.log(data)
     var matchesList = data['response'];
     var fixture = matchesList[0]['fixture'];
     var goals = matchesList[0]['goals'];

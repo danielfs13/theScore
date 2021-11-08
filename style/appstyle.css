@@ -95,7 +95,7 @@ body{
     width: 54px;
 }
 .matches-table{
-    margin-top: 50px;
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
 }
@@ -108,6 +108,7 @@ body{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding: 75px 0px 15px 0px;
     
 }
 .match-tile img{
@@ -165,4 +166,25 @@ body{
 
 #leftMenu ul :hover{
     background-color: rgba(128, 128, 128, 0.178);
+}
+
+.datasJogos{
+    position: absolute;
+    top: -20px;
+    border-top: solid 1px rgba(128, 128, 128, 0.733);
+    padding-top: 20px;
+    white-space: nowrap;
+}
+
+#pGameDate{
+    font-size: 0.85em;
+    padding: 0px;
+    font-weight: bold;
+    
+}
+
+.localPartidas{
+    position: absolute;
+    top: 30px;
+    font-size: 0.5em;
 }

@@ -7,7 +7,8 @@ var lastMatchGoal = document.querySelector("#goals");
 var matchTable = document.querySelector("#matchTable");
 var eventsPlace = document.querySelector('#eventos');
 var eventsP = document.querySelector('#eventosP')
-
+var pGameDate = document.querySelector('#pGameDate')
+var estadio = document.querySelector('#estadio')
 
 function addMatchTile(data){
     console.log(data)
@@ -42,9 +43,32 @@ function addMatchTile(data){
 
 
     var score = document.createElement('p');
-    score.innerHTML = data['goals']['home'] + " - " + data['goals']['away'];
+    score.innerHTML = "x";
 
-  
+    
+    var gameDate = document.createElement('p');
+    gameDate.classList.add('datasJogos');
+    let dateConvert = new Date(data['fixture']['date']);
+    //dateConvert.toISOString();
+    dateConvert.toLocaleString("pt-BR");
+    let dia = dateConvert.getDate();
+    let diaSem = dateConvert.getDay();
+    let mes = dateConvert.getMonth();
+    let hora = dateConvert.getHours();
+    let minuto = dateConvert.getMinutes();
+
+    var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+    var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
+
+    gameDate.innerHTML = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
+    gameDate.style.fontWeight = 'bold';
+
+    let localPartidas = document.createElement('p');
+    localPartidas.classList.add('localPartidas');
+    localPartidas.innerHTML = data['fixture']['venue']['name'];
+
+    matchtile.appendChild(localPartidas);
+    matchtile.appendChild(gameDate);
     matchtile.appendChild(homeTeam);
     matchtile.appendChild(score);
     matchtile.appendChild(awayTeam);
@@ -65,19 +89,39 @@ fetch("https://v3.football.api-sports.io/fixtures?league=71&season=2021&next=10"
     var fixture = matchesList[0]['fixture'];
     var goals = matchesList[0]['goals'];
     var teams = matchesList[0]['teams'];
+    var localPartida = matchesList[0]['fixture']['venue']['name'];
+    
+    let dateConvert = new Date(matchesList[0]['fixture']['date']);
+    //dateConvert.toISOString();
+    dateConvert.toLocaleString("pt-BR");
 
+    let dia = dateConvert.getDate();
+    let diaSem = dateConvert.getDay();
+    let mes = dateConvert.getMonth();
+    let hora = dateConvert.getHours();
+    let minuto = dateConvert.getMinutes();
 
+    var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+    var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
 
-   elapsedTime.innerHTML = fixture['status']['elapsed'] + "'";
+   elapsedTime.innerHTML = " ";
    homeTeamImage.src = teams['home']['logo'];
    homeTeamName.innerHTML = teams['home']['name'];
    awayTeamImage.src = teams['away']['logo'];
    awayTeamName.innerHTML = teams['away']['name'];
-   lastMatchGoal.innerHTML = goals['home']+ " - " + goals['away'];
+   lastMatchGoal.innerHTML = "X";
+   pGameDate.innerHTML = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
+   pGameDate.style.fontSize = '0.75em';
+   estadio.innerHTML = localPartida;
+   estadio.style.fontSize = '0.75em';
+   
+
+
 
    for(var i = 1; i<matchesList.length;i++){
        addMatchTile(matchesList[i]);
    }
+
 
 }))
 .catch(err => {

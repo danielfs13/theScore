@@ -8,25 +8,14 @@ var lastMatchGoal = document.querySelector("#goals");
 var matchTable = document.querySelector("#matchTable");
 
 
-//TT.addEventListener("click", function(data){
- //   alert('Fui clicado')
-//} )
-
 
 function addMatchTile(data){
-    console.log(data)
- 
+
     var matchtile = document.createElement('div');
     matchtile.classList.add("match-tile");
 
-  
     var homeTeam = document.createElement('div');
     homeTeam.classList.add("team");
-
-   // var teamTransfer = document.createElement('p');
-    // teamTransfer.classList.add("TT");
-    teamTransfer.innerHTML = data['teams']['home']['name'];
-    
 
     var homeTileTeamName = document.createElement('p');
     homeTileTeamName.innerHTML = data['teams']['home']['name'];
@@ -34,7 +23,6 @@ function addMatchTile(data){
     homeTileTeamLogo.src=data['teams']['home']['logo'];
     homeTeam.appendChild(homeTileTeamLogo);
     homeTeam.appendChild(homeTileTeamName);
-   // homeTeam.appendChild(teamTransfer);
 
     var awayTeam = document.createElement('div');
     awayTeam.classList.add("team");
@@ -50,14 +38,13 @@ function addMatchTile(data){
     var score = document.createElement('p');
     score.innerHTML = data['goals']['home'] + " - " + data['goals']['away'];
 
-  
     matchtile.appendChild(homeTeam);
     matchtile.appendChild(score);
     matchtile.appendChild(awayTeam);
 
     matchTable.appendChild(matchtile);
-}
-/* fetch("https://v3.football.api-sports.io/transfers?team=2562", {
+
+fetch("https://v3.football.api-sports.io/fixtures?live=all", {
     "method": "GET",
     "headers": {
         "x-rapidapi-host": "v3.football.api-sports.io",
@@ -65,26 +52,11 @@ function addMatchTile(data){
     }
 })
 .then(response => response.json().then(data => {
-    console.log(data)
-
-
-})) */
-
- fetch("https://v3.football.api-sports.io/fixtures?live=all", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "b5fd9ace06fe64728c81b99adf061751"
-    }
-})
-.then(response => response.json().then(data => {
-    console.log(data)
     var matchesList = data['response'];
     var fixture = matchesList[0]['fixture'];
     var goals = matchesList[0]['goals'];
     var teams = matchesList[0]['teams'];
-  //  var teste = matchesList[0]['transfers'];
-
+    console.log(matchesList.length);
 
    elapsedTime.innerHTML = fixture['status']['elapsed'] + "'";
    homeTeamImage.src = teams['home']['logo'];
@@ -100,4 +72,4 @@ function addMatchTile(data){
 }))
 .catch(err => {
     console.log(err);
-});
+})};

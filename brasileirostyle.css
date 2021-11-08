@@ -166,3 +166,7 @@ body{
 #leftMenu ul :hover{
     background-color: rgba(128, 128, 128, 0.178);
 }
+
+.venue{
+    display: hidden;
+}

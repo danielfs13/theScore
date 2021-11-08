@@ -7,7 +7,7 @@ var lastMatchGoal = document.querySelector("#goals");
 var matchTable = document.querySelector("#matchTable");
 var eventsPlace = document.querySelector('#eventos');
 var eventsP = document.querySelector('#eventosP')
-
+var pGameDate = document.querySelector('#pGameDate')
 
 function addMatchTile(data){
     console.log(data)
@@ -44,6 +44,25 @@ function addMatchTile(data){
     var score = document.createElement('p');
     score.innerHTML = "x";
 
+    
+    var gameDate = document.createElement('p');
+    gameDate.classList.add('datasJogos');
+    let dateConvert = new Date(data['fixture']['date']);
+    //dateConvert.toISOString();
+    dateConvert.toLocaleString("pt-BR");
+    let dia = dateConvert.getDate();
+    let diaSem = dateConvert.getDay();
+    let mes = dateConvert.getMonth();
+    let hora = dateConvert.getHours();
+    let minuto = dateConvert.getMinutes();
+
+    var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+    var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
+
+    gameDate.innerHTML = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
+
+
+    matchtile.appendChild(gameDate);
     matchtile.appendChild(homeTeam);
     matchtile.appendChild(score);
     matchtile.appendChild(awayTeam);
@@ -64,9 +83,19 @@ fetch("https://v3.football.api-sports.io/fixtures?league=71&season=2021&next=10"
     var fixture = matchesList[0]['fixture'];
     var goals = matchesList[0]['goals'];
     var teams = matchesList[0]['teams'];
-
     
+    let dateConvert = new Date(matchesList[0]['fixture']['date']);
+    //dateConvert.toISOString();
+    dateConvert.toLocaleString("pt-BR");
 
+    let dia = dateConvert.getDate();
+    let diaSem = dateConvert.getDay();
+    let mes = dateConvert.getMonth();
+    let hora = dateConvert.getHours();
+    let minuto = dateConvert.getMinutes();
+
+    var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+    var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
 
    elapsedTime.innerHTML = " ";
    homeTeamImage.src = teams['home']['logo'];
@@ -74,6 +103,8 @@ fetch("https://v3.football.api-sports.io/fixtures?league=71&season=2021&next=10"
    awayTeamImage.src = teams['away']['logo'];
    awayTeamName.innerHTML = teams['away']['name'];
    lastMatchGoal.innerHTML = "X";
+   pGameDate.innerHTML = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
+
 
 
    for(var i = 1; i<matchesList.length;i++){

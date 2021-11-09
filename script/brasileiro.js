@@ -6,9 +6,10 @@ var awayTeamName = document.querySelector("#awayName");
 var lastMatchGoal = document.querySelector("#goals");
 var matchTable = document.querySelector("#matchTable");
 var eventsPlace = document.querySelector('#eventos');
-var eventsP = document.querySelector('#eventosP')
-var pGameDate = document.querySelector('#pGameDate')
-var estadio = document.querySelector('#estadio')
+var eventsP = document.querySelector('#eventosP');
+var pGameDate = document.querySelector('#pGameDate');
+var estadio = document.querySelector('#estadio');
+var estadioIcon = document.querySelector('.estadioIcon');
 
 function addMatchTile(data){
     console.log(data)
@@ -57,17 +58,46 @@ function addMatchTile(data){
     let hora = dateConvert.getHours();
     let minuto = dateConvert.getMinutes();
 
+    if(minuto === 0){
+        minuto = "00";
+    }
+
     var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
     var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
 
     gameDate.innerHTML = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
     gameDate.style.fontWeight = 'bold';
 
+
+    let localDiv = document.createElement('div');
+    localDiv.classList.add = ("localDiv");
+
+    localDiv.style.display = "flex";
+    localDiv.style.width = "258px";
+    localDiv.style.height = '34px';
+    localDiv.style.position = "absolute";
+    localDiv.style.top = "10px";
+    localDiv.style.justifyContent = "space-evenly";
+    localDiv.style.alignItems = "center";
+    localDiv.style.margin = "10px 0px 10px 0px";
+
     let localPartidas = document.createElement('p');
     localPartidas.classList.add('localPartidas');
-    localPartidas.innerHTML = data['fixture']['venue']['name'];
 
-    matchtile.appendChild(localPartidas);
+    let estadio = document.createElement('img');
+    estadio.src = "../thescore/images/stadium_black_24dp.svg";
+    estadio.style.width = '25px';
+    estadio.style.display = 'flex';
+
+    localPartidas.innerHTML = data['fixture']['venue']['name'];
+    localPartidas.style.fontSize = '0.75em';
+    localPartidas.style.display = 'flex';
+
+  
+    localDiv.appendChild(estadio);
+    localDiv.appendChild(localPartidas);
+    
+    matchtile.appendChild(localDiv);
     matchtile.appendChild(gameDate);
     matchtile.appendChild(homeTeam);
     matchtile.appendChild(score);
@@ -110,9 +140,9 @@ fetch("https://v3.football.api-sports.io/fixtures?league=71&season=2021&next=10"
    awayTeamImage.src = teams['away']['logo'];
    awayTeamName.innerHTML = teams['away']['name'];
    lastMatchGoal.innerHTML = "X";
-   pGameDate.innerHTML = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
+   pGameDate.innerText = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
    pGameDate.style.fontSize = '0.75em';
-   estadio.innerHTML = localPartida;
+   estadio.innerText = localPartida;
    estadio.style.fontSize = '0.75em';
    
 

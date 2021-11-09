@@ -1,4 +1,3 @@
-
 var elapsedTime = document.querySelector("#elapsed");
 var homeTeamImage = document.querySelector("#homeLogo");
 var homeTeamName = document.querySelector("#homeName");
@@ -43,6 +42,7 @@ function addMatchTile(data){
     matchtile.appendChild(awayTeam);
 
     matchTable.appendChild(matchtile);
+}
 
 fetch("https://v3.football.api-sports.io/fixtures?live=all", {
     "method": "GET",
@@ -52,11 +52,11 @@ fetch("https://v3.football.api-sports.io/fixtures?live=all", {
     }
 })
 .then(response => response.json().then(data => {
+    console.log(data);
     var matchesList = data['response'];
     var fixture = matchesList[0]['fixture'];
     var goals = matchesList[0]['goals'];
     var teams = matchesList[0]['teams'];
-    console.log(matchesList.length);
 
    elapsedTime.innerHTML = fixture['status']['elapsed'] + "'";
    homeTeamImage.src = teams['home']['logo'];
@@ -72,4 +72,4 @@ fetch("https://v3.football.api-sports.io/fixtures?live=all", {
 }))
 .catch(err => {
     console.log(err);
-})};
+});

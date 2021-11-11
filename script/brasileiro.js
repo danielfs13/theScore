@@ -11,6 +11,8 @@ var pGameDate = document.querySelector('#pGameDate');
 var estadio = document.querySelector('#estadio');
 var estadioIcon = document.querySelector('.estadioIcon');
 
+
+
 function addMatchTile(data){
     console.log(data)
  
@@ -106,7 +108,6 @@ function addMatchTile(data){
     matchTable.appendChild(matchtile);
 }
 
-
 fetch("https://v3.football.api-sports.io/fixtures?league=71&season=2021&next=10", {
 	"method": "GET",
 	"headers": {
@@ -145,7 +146,9 @@ fetch("https://v3.football.api-sports.io/fixtures?league=71&season=2021&next=10"
    estadio.innerText = localPartida;
    estadio.style.fontSize = '0.75em';
    
-
+   if(minuto === 0){
+    minuto = "00";
+}
 
 
    for(var i = 1; i<matchesList.length;i++){

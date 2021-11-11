@@ -46,7 +46,8 @@ function addMatchTile(data){
 
 
     var score = document.createElement('p');
-    score.innerHTML = "x";
+    score.innerHTML = data['goals']['home'] + " - " + data['goals']['away'];
+    score.style.fontSize = '1.5em';  
 
     
     var gameDate = document.createElement('p');
@@ -108,7 +109,7 @@ function addMatchTile(data){
     matchTable.appendChild(matchtile);
 }
 
-fetch("https://v3.football.api-sports.io/fixtures?league=140&season=2021&next=10", {
+fetch("https://v3.football.api-sports.io/fixtures?league=2&season=2021&last=10", {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "v3.football.api-sports.io",
@@ -144,7 +145,7 @@ fetch("https://v3.football.api-sports.io/fixtures?league=140&season=2021&next=10
    homeTeamName.innerHTML = teams['home']['name'];
    awayTeamImage.src = teams['away']['logo'];
    awayTeamName.innerHTML = teams['away']['name'];
-   lastMatchGoal.innerHTML = "X";
+   lastMatchGoal.innerHTML = goals['home']+ " - " + goals['away'];
    pGameDate.innerText = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
    pGameDate.style.fontSize = '0.75em';
    estadio.innerText = localPartida;

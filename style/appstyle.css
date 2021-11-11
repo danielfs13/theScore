@@ -14,6 +14,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #topcontainer{
@@ -50,7 +51,7 @@ body{
     overflow-y: scroll;
     overflow-x:hidden;
     height: 50vh;
-    font-family: 'Open Sans', sans-serif;
+    
     white-space: nowrap;
 }
 
@@ -86,6 +87,11 @@ body{
    
     
 }
+
+.title-box p{
+    font-size: 0.75em;
+}
+
 .title-box #goals{
     font-size: 1.5em;
 }
@@ -201,4 +207,24 @@ body{
 
 #localPartida img{
     padding-right: 5px;
+}
+
+#matchesbtn{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 0;
+    top:0;
+    padding: 10px;
+    text-transform: capitalize;
+    align-items: center;
+}
+
+#matchesbtn a {
+    color: rgb(42, 156, 190);
+    text-decoration: none;
+}
+
+#matchesbtn p, a {
+    padding: 10px;
 }

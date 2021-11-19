@@ -66,3 +66,26 @@ body{
     background-color: green;
 
 }
+
+@media (max-width: 375px) {
+    #cardcontent{
+        width: 60vw;
+        height: 40vh;
+        font-size: 0.75em;
+    }
+    #logo{
+        position: absolute;
+        width: 50vw;
+        top: 30vh;
+    }
+    #cardbutton{
+        position: absolute;
+        bottom: 30vh;
+    }
+    #cardbelow p{
+        position: absolute;
+        top: 50vh;
+        width: 200px;
+        text-align: center;
+    }
+}

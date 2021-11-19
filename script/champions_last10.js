@@ -71,36 +71,8 @@ function addMatchTile(data){
     gameDate.innerHTML = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
     gameDate.style.fontWeight = 'bold';
 
-
-    let localDiv = document.createElement('div');
-    localDiv.classList.add = ("localDiv");
-
-    localDiv.style.display = "flex";
-    localDiv.style.width = "258px";
-    localDiv.style.height = '34px';
-    localDiv.style.position = "absolute";
-    localDiv.style.top = "10px";
-    localDiv.style.justifyContent = "space-evenly";
-    localDiv.style.alignItems = "center";
-    localDiv.style.margin = "10px 0px 10px 0px";
-
-    let localPartidas = document.createElement('p');
-    localPartidas.classList.add('localPartidas');
-
-    let estadio = document.createElement('img');
-    estadio.src = "../thescore/images/stadium_black_24dp.svg";
-    estadio.style.width = '25px';
-    estadio.style.display = 'flex';
-
-    localPartidas.innerHTML = data['fixture']['venue']['name'];
-    localPartidas.style.fontSize = '0.75em';
-    localPartidas.style.display = 'flex';
-
   
-    localDiv.appendChild(estadio);
-    localDiv.appendChild(localPartidas);
     
-    matchtile.appendChild(localDiv);
     matchtile.appendChild(gameDate);
     matchtile.appendChild(homeTeam);
     matchtile.appendChild(score);
@@ -121,7 +93,6 @@ fetch("https://v3.football.api-sports.io/fixtures?league=2&season=2021&last=10",
     var fixture = matchesList[0]['fixture'];
     var goals = matchesList[0]['goals'];
     var teams = matchesList[0]['teams'];
-    var localPartida = matchesList[0]['fixture']['venue']['name'];
     
     let dateConvert = new Date(matchesList[0]['fixture']['date']);
     //dateConvert.toISOString();
@@ -133,12 +104,14 @@ fetch("https://v3.football.api-sports.io/fixtures?league=2&season=2021&last=10",
     let hora = dateConvert.getHours();
     let minuto = dateConvert.getMinutes();
 
-    var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
-    var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
-
     if(minuto === 0){
         minuto = "00";
     }
+
+    var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+    var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
+
+
 
    elapsedTime.innerHTML = " ";
    homeTeamImage.src = teams['home']['logo'];
@@ -148,8 +121,6 @@ fetch("https://v3.football.api-sports.io/fixtures?league=2&season=2021&last=10",
    lastMatchGoal.innerHTML = goals['home']+ " - " + goals['away'];
    pGameDate.innerText = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
    pGameDate.style.fontSize = '0.75em';
-   estadio.innerText = localPartida;
-   estadio.style.fontSize = '0.75em';
    
 
 

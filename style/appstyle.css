@@ -240,6 +240,7 @@ body{
         left: 0;
         border-right: solid rgba(128, 128, 128, 0.212);
         overflow: hidden;
+        font-size: 0.8em;
     }
     #leftMenu ul{
         display: flex;
@@ -248,8 +249,19 @@ body{
     }
     .container{
         top:60%;
-        width: 40vh;
+        width: 90vw;
         right: 0px;
-        left: 190px;
+        left: 50vw;
     }
 }
+
+@media (max-width: 320px){
+    .container{
+        left: 160px;
+        width:90vw;
+    }
+    body{
+    height: 110vh;
+    }
+}
+

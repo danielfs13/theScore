@@ -87,7 +87,7 @@ function addMatchTile(data){
     localPartidas.classList.add('localPartidas');
 
     let estadio = document.createElement('img');
-    estadio.src = "../thescore/images/stadium_black_24dp.svg";
+    estadio.src = "../images/stadium_black_24dp.svg";
     estadio.style.width = '25px';
     estadio.style.display = 'flex';
 
@@ -132,12 +132,12 @@ fetch("https://v3.football.api-sports.io/fixtures?league=140&season=2021&next=10
     let hora = dateConvert.getHours();
     let minuto = dateConvert.getMinutes();
 
-    var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
-    var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
-
     if(minuto === 0){
         minuto = "00";
     }
+
+    var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+    var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
 
    elapsedTime.innerHTML = " ";
    homeTeamImage.src = teams['home']['logo'];

@@ -57,6 +57,10 @@ function addMatchTile(data){
     let hora = dateConvert.getHours();
     let minuto = dateConvert.getMinutes();
 
+    if(minuto === 0){
+        minuto = "00";
+    }
+
     var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
     var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
 
@@ -89,7 +93,6 @@ fetch("https://v3.football.api-sports.io/fixtures?league=2&season=2021&next=10",
     var fixture = matchesList[0]['fixture'];
     var goals = matchesList[0]['goals'];
     var teams = matchesList[0]['teams'];
-    var localPartida = matchesList[0]['fixture']['venue']['name'];
     
     let dateConvert = new Date(matchesList[0]['fixture']['date']);
     //dateConvert.toISOString();
@@ -100,6 +103,11 @@ fetch("https://v3.football.api-sports.io/fixtures?league=2&season=2021&next=10",
     let mes = dateConvert.getMonth();
     let hora = dateConvert.getHours();
     let minuto = dateConvert.getMinutes();
+
+    if(minuto === 0){
+        minuto = "00";
+    }
+
 
     var meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
     var semanas = new Array("Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado");
@@ -112,8 +120,6 @@ fetch("https://v3.football.api-sports.io/fixtures?league=2&season=2021&next=10",
    lastMatchGoal.innerHTML = "X";
    pGameDate.innerHTML = semanas[diaSem] + ", " + dia + " de " + meses[mes] + " " + hora + ":" + minuto;
    pGameDate.style.fontSize = '0.75em';
-   estadio.innerHTML = localPartida;
-   estadio.style.fontSize = '0.75em';
    
 
 

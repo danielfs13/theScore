@@ -87,7 +87,7 @@ function addMatchTile(data){
     localPartidas.classList.add('localPartidas');
 
     let estadio = document.createElement('img');
-    estadio.src = "../images/stadium_black_24dp.svg";
+    estadio.src = "./images/stadium_black_24dp.svg";
     estadio.style.width = '25px';
     estadio.style.display = 'flex';
 
